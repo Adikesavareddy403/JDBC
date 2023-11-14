@@ -84,15 +84,19 @@ public class employe {
 	}
 	static void Update() throws SQLException {
 		Scanner sc = new Scanner(System.in);
+		System.out.println("Please Enter Column Name To Proceed: ");
 		String col = sc.nextLine();
 		String up = "UPDATE employ set "+col+"= ? where id=?";
 		pre = con.prepareStatement(up);
 		
 		if(col.equals("id") || col.equals("salary")) {
+			System.out.println("Please Enter Value To Proceed: ");
 			pre.setInt(1, sc.nextInt());
 		} else {
+			System.out.println("Please Enter Value To Proceed: ");
 			pre.setString(1, sc.nextLine());
 		}
+		System.out.println("Enter ID To Proceed: ");
 		pre.setInt(2, sc.nextInt());
 		
 		int times = pre.executeUpdate();
